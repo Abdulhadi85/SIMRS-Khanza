@@ -35,7 +35,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariDokter;
+import kepegawaian.DlgCariDokter;
 import simrskhanza.DlgCariPerawatanRalan;
 import keuangan.DlgJnsPerawatanRalan;
 import simrskhanza.DlgPenanggungJawab;
@@ -532,7 +532,7 @@ public final class DlgSetOtoRalan extends javax.swing.JDialog {
         internalFrame1.add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
         TabRawat.setBackground(new java.awt.Color(255, 255, 253));
-        TabRawat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(234, 250, 233)));
+        TabRawat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 246, 236)));
         TabRawat.setForeground(new java.awt.Color(90, 120, 80));
         TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawat.setName("TabRawat"); // NOI18N

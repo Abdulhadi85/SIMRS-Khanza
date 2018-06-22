@@ -23,7 +23,7 @@ import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import simrskhanza.DlgCariPetugas;
+import kepegawaian.DlgCariPetugas;
 
 public class UTDMedisRusak extends javax.swing.JDialog {
     private final DefaultTableModel tabMode,tabMode2;
@@ -259,7 +259,7 @@ public class UTDMedisRusak extends javax.swing.JDialog {
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
         TabSetting.setBackground(new java.awt.Color(255, 255, 253));
-        TabSetting.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(234, 250, 233)));
+        TabSetting.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 246, 236)));
         TabSetting.setForeground(new java.awt.Color(90, 120, 80));
         TabSetting.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabSetting.setName("TabSetting"); // NOI18N
