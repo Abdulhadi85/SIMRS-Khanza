@@ -10,6 +10,7 @@ import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
 import fungsi.var;
+import inventory.DlgPeresepanDokter;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -899,6 +900,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         JmPerawat = new javax.swing.JTextField();
         TTnd = new javax.swing.JTextField();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        MnResepDOkter = new javax.swing.JMenuItem();
         MnPemberianObat = new javax.swing.JMenuItem();
         MnDiagnosa = new javax.swing.JMenuItem();
         ppBerkasDigital = new javax.swing.JMenuItem();
@@ -1123,6 +1125,22 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         TTnd.setName("TTnd"); // NOI18N
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
+
+        MnResepDOkter.setBackground(new java.awt.Color(255, 255, 255));
+        MnResepDOkter.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnResepDOkter.setForeground(new java.awt.Color(130, 100, 100));
+        MnResepDOkter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnResepDOkter.setText("Input Resep Dokter");
+        MnResepDOkter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnResepDOkter.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnResepDOkter.setName("MnResepDOkter"); // NOI18N
+        MnResepDOkter.setPreferredSize(new java.awt.Dimension(210, 23));
+        MnResepDOkter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnResepDOkterActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(MnResepDOkter);
 
         MnPemberianObat.setBackground(new java.awt.Color(255, 255, 255));
         MnPemberianObat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1409,7 +1427,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
 
         DTPCari1.setEditable(false);
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-09-2018" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-09-2018" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1424,7 +1442,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
 
         DTPCari2.setEditable(false);
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-09-2018" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-09-2018" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -2909,7 +2927,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
 
         DTPTgl.setEditable(false);
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-09-2018" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-09-2018" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -3935,7 +3953,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         var.setform("DlgRawatInap");
         pasien.emptTeks();
         pasien.isCek();
-        pasien.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+        pasien.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.setLocationRelativeTo(internalFrame1);
         pasien.setVisible(rootPaneCheckingEnabled);
 }//GEN-LAST:event_btnPasienActionPerformed
@@ -4517,7 +4535,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }else{            
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgPemberianObat dlgrwinap=new DlgPemberianObat(null,false);
-            dlgrwinap.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+            dlgrwinap.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             dlgrwinap.setLocationRelativeTo(internalFrame1);
             dlgrwinap.isCek();
             dlgrwinap.setNoRm(TNoRw.getText(),DTPCari1.getDate(),DTPCari2.getDate(),"ranap");
@@ -4533,7 +4551,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             TCari.requestFocus();
         }else{            
             DlgDiagnosaPenyakit resep=new DlgDiagnosaPenyakit(null,false);
-            resep.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+            resep.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             resep.setLocationRelativeTo(internalFrame1);
             resep.isCek();
             resep.setNoRm(TNoRw.getText(),DTPCari1.getDate(),DTPCari2.getDate(),"Ranap");
@@ -4552,7 +4570,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             System.out.println("Notifikasi : "+ex);
         }
 
-        berkas.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+        berkas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         berkas.setLocationRelativeTo(internalFrame1);
         berkas.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
@@ -4567,7 +4585,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             DlgResumePerawatan resume=new DlgResumePerawatan(null,true);
             resume.setNoRm(TNoRM.getText(),TPasien.getText());
             resume.tampil();
-            resume.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+            resume.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             resume.setLocationRelativeTo(internalFrame1);
             resume.setVisible(true);
             this.setCursor(Cursor.getDefaultCursor());
@@ -4592,7 +4610,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         var.setform("DlgRawatInap");
         perawatan.dokter.emptTeks();
         perawatan.dokter.isCek();
-        perawatan.dokter.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+        perawatan.dokter.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         perawatan.dokter.setLocationRelativeTo(internalFrame1);
         perawatan.dokter.setVisible(true);
     }//GEN-LAST:event_BtnSeekDokterActionPerformed
@@ -4621,7 +4639,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         var.setform("DlgRawatInap");
         perawatan.petugas.emptTeks();
         perawatan.petugas.isCek();
-        perawatan.petugas.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+        perawatan.petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         perawatan.petugas.setLocationRelativeTo(internalFrame1);
         perawatan.petugas.setVisible(true);
     }//GEN-LAST:event_BtnSeekPetugasActionPerformed
@@ -4650,7 +4668,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         var.setform("DlgRawatInap");
         perawatan.petugas.emptTeks();
         perawatan.petugas.isCek();
-        perawatan.petugas.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+        perawatan.petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         perawatan.petugas.setLocationRelativeTo(internalFrame1);
         perawatan.petugas.setVisible(true);
     }//GEN-LAST:event_BtnSeekPetugas2ActionPerformed
@@ -4669,7 +4687,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         var.setform("DlgRawatInap");
         perawatan.dokter.emptTeks();
         perawatan.dokter.isCek();
-        perawatan.dokter.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+        perawatan.dokter.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         perawatan.dokter.setLocationRelativeTo(internalFrame1);
         perawatan.dokter.setVisible(true);
     }//GEN-LAST:event_BtnSeekDokter2ActionPerformed
@@ -4807,7 +4825,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 perawatan.emptTeks();
                 perawatan.isCek();
                 perawatan.tampil();
-                perawatan.setSize(this.getWidth()-40,this.getHeight()-40);
+                perawatan.setSize(this.getWidth()-20,this.getHeight()-20);
                 perawatan.setLocationRelativeTo(internalFrame1);
                 perawatan.setVisible(true);
             }else{
@@ -4822,7 +4840,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     perawatan.emptTeks();
                     perawatan.isCek();
                     perawatan.tampil();
-                    perawatan.setSize(this.getWidth()-40,this.getHeight()-40);
+                    perawatan.setSize(this.getWidth()-20,this.getHeight()-20);
                     perawatan.setLocationRelativeTo(internalFrame1);
                     perawatan.setVisible(true);
                 }
@@ -4847,7 +4865,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 var.setform("DlgRawatInap");
                 perawatan2.isCek();
                 perawatan2.tampil2();
-                perawatan2.setSize(this.getWidth()-40,this.getHeight()-40);
+                perawatan2.setSize(this.getWidth()-20,this.getHeight()-20);
                 perawatan2.setLocationRelativeTo(internalFrame1);
                 perawatan2.setVisible(true);
             }else{
@@ -4861,7 +4879,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     var.setform("DlgRawatInap");
                     perawatan2.isCek();
                     perawatan2.tampil2();
-                    perawatan2.setSize(this.getWidth()-40,this.getHeight()-40);
+                    perawatan2.setSize(this.getWidth()-20,this.getHeight()-20);
                     perawatan2.setLocationRelativeTo(internalFrame1);
                     perawatan2.setVisible(true);
                 }
@@ -4887,7 +4905,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 perawatan.emptTeks();
                 perawatan.isCek();
                 perawatan.tampil();
-                perawatan.setSize(this.getWidth()-40,this.getHeight()-40);
+                perawatan.setSize(this.getWidth()-20,this.getHeight()-20);
                 perawatan.setLocationRelativeTo(internalFrame1);
                 perawatan.setVisible(true);
             }else{
@@ -4902,7 +4920,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     perawatan.emptTeks();
                     perawatan.isCek();
                     perawatan.tampil();
-                    perawatan.setSize(this.getWidth()-40,this.getHeight()-40);
+                    perawatan.setSize(this.getWidth()-20,this.getHeight()-20);
                     perawatan.setLocationRelativeTo(internalFrame1);
                     perawatan.setVisible(true);
                 }
@@ -4927,7 +4945,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 var.setform("DlgRawatInap");
                 perawatan2.isCek();
                 perawatan2.tampil2();
-                perawatan2.setSize(this.getWidth()-40,this.getHeight()-40);
+                perawatan2.setSize(this.getWidth()-20,this.getHeight()-20);
                 perawatan2.setLocationRelativeTo(internalFrame1);
                 perawatan2.setVisible(true);
             }else{
@@ -4941,7 +4959,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     var.setform("DlgRawatInap");
                     perawatan2.isCek();
                     perawatan2.tampil2();
-                    perawatan2.setSize(this.getWidth()-40,this.getHeight()-40);
+                    perawatan2.setSize(this.getWidth()-20,this.getHeight()-20);
                     perawatan2.setLocationRelativeTo(internalFrame1);
                     perawatan2.setVisible(true);
                 }
@@ -4969,7 +4987,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 perawatan.emptTeks();
                 perawatan.isCek();
                 perawatan.tampil();
-                perawatan.setSize(this.getWidth()-40,this.getHeight()-40);
+                perawatan.setSize(this.getWidth()-20,this.getHeight()-20);
                 perawatan.setLocationRelativeTo(internalFrame1);
                 perawatan.setVisible(true);
             }else{
@@ -4984,7 +5002,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     perawatan.emptTeks();
                     perawatan.isCek();
                     perawatan.tampil();
-                    perawatan.setSize(this.getWidth()-40,this.getHeight()-40);
+                    perawatan.setSize(this.getWidth()-20,this.getHeight()-20);
                     perawatan.setLocationRelativeTo(internalFrame1);
                     perawatan.setVisible(true);
                 }
@@ -5011,7 +5029,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 var.setform("DlgRawatInap");
                 perawatan2.isCek();
                 perawatan2.tampil2();
-                perawatan2.setSize(this.getWidth()-40,this.getHeight()-40);
+                perawatan2.setSize(this.getWidth()-20,this.getHeight()-20);
                 perawatan2.setLocationRelativeTo(internalFrame1);
                 perawatan2.setVisible(true);
             }else{
@@ -5025,7 +5043,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     var.setform("DlgRawatInap");
                     perawatan2.isCek();
                     perawatan2.tampil2();
-                    perawatan2.setSize(this.getWidth()-40,this.getHeight()-40);
+                    perawatan2.setSize(this.getWidth()-20,this.getHeight()-20);
                     perawatan2.setLocationRelativeTo(internalFrame1);
                     perawatan2.setVisible(true);
                 }
@@ -5148,7 +5166,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }else{            
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgPermintaanLaboratorium dlgro=new DlgPermintaanLaboratorium(null,false);
-            dlgro.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+            dlgro.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             dlgro.setLocationRelativeTo(internalFrame1);
             dlgro.emptTeks();
             dlgro.isCek();
@@ -5165,7 +5183,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }else{            
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgPermintaanRadiologi dlgro=new DlgPermintaanRadiologi(null,false);
-            dlgro.setSize(internalFrame1.getWidth()-40,internalFrame1.getHeight()-40);
+            dlgro.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
             dlgro.setLocationRelativeTo(internalFrame1);
             dlgro.emptTeks();
             dlgro.isCek();
@@ -5174,6 +5192,24 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             this.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_MnPermintaanRadiologiActionPerformed
+
+    private void MnResepDOkterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnResepDOkterActionPerformed
+        if(TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+            TCari.requestFocus();
+        }else if(KdDok.getText().trim().equals("")||TDokter.getText().trim().equals("")){
+            Valid.textKosong(KdDok,"Dokter");
+        }else{            
+            DlgPeresepanDokter resep=new DlgPeresepanDokter(null,false);
+            resep.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            resep.setLocationRelativeTo(internalFrame1);
+            resep.isCek();
+            resep.setNoRm(TNoRw.getText(),DTPTgl.getDate(),cmbJam.getSelectedItem().toString(),cmbMnt.getSelectedItem().toString(),
+                cmbDtk.getSelectedItem().toString(),KdDok.getText(),TDokter.getText(),"ranap");
+            resep.tampilobat();
+            resep.setVisible(true);            
+        }
+    }//GEN-LAST:event_MnResepDOkterActionPerformed
 
     /**
     * @param args the command line arguments
@@ -5225,6 +5261,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private javax.swing.JMenuItem MnPemberianObat;
     private javax.swing.JMenuItem MnPermintaanLab;
     private javax.swing.JMenuItem MnPermintaanRadiologi;
+    private javax.swing.JMenuItem MnResepDOkter;
     private javax.swing.JPanel PanelInput1;
     private javax.swing.JPanel PanelInput2;
     private javax.swing.JPanel PanelInput3;
@@ -5740,12 +5777,13 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         if(KdDok.getText().equals("")){
             KdDok.setText(Sequel.cariIsi("select kd_dokter from reg_periksa where no_rawat=?",norwt));
         }
+        Sequel.cariIsi("select nm_dokter from dokter where kd_dokter=?",TDokter,KdDok.getText());
+        
         isRawat();
         isPsien();
         DTPCari1.setDate(awal);
         DTPCari2.setDate(akhir);
         TCari.setText(norwt);
-        Sequel.cariIsi("select nm_dokter from dokter where kd_dokter=?",TDokter,KdDok.getText());
         ChkInput.setSelected(true);
         isForm();
         ChkInput1.setSelected(true);
