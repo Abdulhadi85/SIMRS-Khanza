@@ -89,11 +89,23 @@ public final class DlgPelayananApotek extends javax.swing.JDialog {
         if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
-                public void insertUpdate(DocumentEvent e) {tampil();}
+                public void insertUpdate(DocumentEvent e) {
+                    if(TCari.getText().length()>2){
+                        tampil();
+                    }
+                }
                 @Override
-                public void removeUpdate(DocumentEvent e) {tampil();}
+                public void removeUpdate(DocumentEvent e) {
+                    if(TCari.getText().length()>2){
+                        tampil();
+                    }
+                }
                 @Override
-                public void changedUpdate(DocumentEvent e) {tampil();}
+                public void changedUpdate(DocumentEvent e) {
+                    if(TCari.getText().length()>2){
+                        tampil();
+                    }
+                }
             });
         }  
     }    
@@ -139,7 +151,7 @@ public final class DlgPelayananApotek extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Lama Pelayanan Apotek ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(110, 80, 80))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Lama Pelayanan Apotek ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(70, 70, 70))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -171,7 +183,6 @@ public final class DlgPelayananApotek extends javax.swing.JDialog {
         label11.setPreferredSize(new java.awt.Dimension(50, 23));
         panelGlass5.add(label11);
 
-        Tgl1.setEditable(false);
         Tgl1.setDisplayFormat("dd-MM-yyyy");
         Tgl1.setName("Tgl1"); // NOI18N
         Tgl1.setPreferredSize(new java.awt.Dimension(90, 23));
@@ -183,7 +194,6 @@ public final class DlgPelayananApotek extends javax.swing.JDialog {
         label18.setPreferredSize(new java.awt.Dimension(25, 23));
         panelGlass5.add(label18);
 
-        Tgl2.setEditable(false);
         Tgl2.setDisplayFormat("dd-MM-yyyy");
         Tgl2.setName("Tgl2"); // NOI18N
         Tgl2.setPreferredSize(new java.awt.Dimension(90, 23));
@@ -290,7 +300,7 @@ public final class DlgPelayananApotek extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
             //TCari.requestFocus();
         }else if(tabMode.getRowCount()!=0){
-            Sequel.AutoComitFalse();
+            
             Map<String, Object> param = new HashMap<>();         
             param.put("namars",var.getnamars());
             param.put("alamatrs",var.getalamatrs());
@@ -303,7 +313,7 @@ public final class DlgPelayananApotek extends javax.swing.JDialog {
             param.put("tanggal2",Valid.SetTgl(Tgl2.getSelectedItem()+""));   
             param.put("parameter","%"+TCari.getText().trim()+"%");    
             param.put("limabelas",""+limabelas);  
-            param.put("rata",""+Valid.SetAngka6(lamajam/i));  
+            param.put("rata",""+Valid.SetAngka6(lamajam/(i-1)));  
             param.put("tigapuluh",""+tigapuluh);  
             param.put("satujam",""+satujam);  
             param.put("lebihsatujam",""+lebihsatujam);  
@@ -486,21 +496,24 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                         lebihsatujam++;
                     }
                 }                 
-                tabMode.addRow(new Object[]{
-                    "","","Rata-rata (Menit)",": ","","","",""+Valid.SetAngka6(lamajam/i)
-                });
-                tabMode.addRow(new Object[]{
-                    "","","0 - 15 Menit",": ","","","",""+limabelas
-                });
-                tabMode.addRow(new Object[]{
-                    "","",">15 - <=30 Menit",": ","","","",""+tigapuluh
-                });
-                tabMode.addRow(new Object[]{
-                    "","",">30 - <=60 Menit",": ","","","",""+satujam
-                });
-                tabMode.addRow(new Object[]{
-                    "","",">60 Menit",": ","","","",""+lebihsatujam
-                });
+                
+                if(lamajam>0){
+                    tabMode.addRow(new Object[]{
+                        "","","Rata-rata (Menit)",": ","","","",""+Valid.SetAngka6(lamajam/(i-1))
+                    });
+                    tabMode.addRow(new Object[]{
+                        "","","0 - 15 Menit",": ","","","",""+limabelas
+                    });
+                    tabMode.addRow(new Object[]{
+                        "","",">15 - <=30 Menit",": ","","","",""+tigapuluh
+                    });
+                    tabMode.addRow(new Object[]{
+                        "","",">30 - <=60 Menit",": ","","","",""+satujam
+                    });
+                    tabMode.addRow(new Object[]{
+                        "","",">60 Menit",": ","","","",""+lebihsatujam
+                    });
+                }                    
             } catch (Exception e) {
                 System.out.println("laporan.DlgPelayananRalan.tampil() : "+e);
             } finally{
